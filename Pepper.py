@@ -3,10 +3,13 @@ from discord.ext import commands
 import youtube_dl
 import os
 
-client = commands.Bot(command_prefix="p^")
 
-@client.command()
-async def play(ctx, url : str):
+client = commands.Bot(command_prefix="^")
+
+
+
+@client.command( )
+async def play(ctx, url : str ):
     song_there = os.path.isfile("song.mp3")
     try:
         if song_there:
@@ -15,7 +18,7 @@ async def play(ctx, url : str):
         await ctx.send("Wait for the current playing music to end or use the 'stop' command")
         return
 
-    voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='General')
+    voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='🔊〢Radio')
     await voiceChannel.connect()
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
 
@@ -67,4 +70,5 @@ async def stop(ctx):
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
     voice.stop()
 
+client.run("ODk2MDE3Mzg2NjE0OTcyNDc3.YWA_OA.34Au6HrPZVqiEdDrWlvkfsuEMMg")
 
